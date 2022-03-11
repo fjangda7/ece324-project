@@ -1,7 +1,7 @@
 # Classifying Movie Genres
 Fatima Jangda, Noelle Lim, Eeman Salman
 
-This repository contains the work for our ESC324 project on classifying movie genres based on movie synopses.
+This repository contains the work for our ECE324 project on classifying movie genres based on movie synopses.
 
 ### Data 
 The data folder contains csvs to the data we have used (3 csvs from Kaggle datasets and 1 csv from human classified movie genres). 
