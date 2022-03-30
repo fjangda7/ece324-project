@@ -1,36 +1,30 @@
-import pandas as pd
-from bs4 import BeautifulSoup
-import re
-from nltk.corpus import stopwords
-import matplotlib.pyplot as plt
 from utils import getTags
+import matplotlib.pyplot as plt
+from bs4 import BeautifulSoup
+import pandas as pd
+from nltk.corpus import stopwords
+import re
 
 def plotToWords(raw_plot):
-    plot = BeautifulSoup(raw_plot, "lxml")
-    letters_only = re.sub("[^a-zA-Z]", " ", plot.get_text())
-    lower_case = letters_only.lower()
-    words = lower_case.split()
-    stops = set(stopwords.words("english"))
-    meaningful_words = [w for w in words if not w in stops]
-    return (" ".join(meaningful_words))
+    figure = BeautifulSoup(raw_plot, "lxml")
+    justLetters = re.sub("[^a-zA-Z]", " ", figure.get_text())
+    lower = justLetters.lower()
+    words = lower.split()
+    stopwords = set(stopwords.words("english"))
+    keys = [w for w in words if not w in stopwords]
+    return (" ".join(keys))
 
 def preprocess(filename):
     train = pd.read_csv(filename)
-    # counts = train.Genre1.value_counts()
-    # counts.plot(kind='bar')
-    # plt.show()
-    # print counts
 
-    num_reviews = train["Plot"].size
-    clean_train_reviews = []
+    numberOfReviews = train["Plot"].size
+    formattedReviews_trained = []
 
-    for i in range(0, num_reviews):
-        if ((i + 1) % 100 == 0):
-            print ("Review %d of %d\n" % (i + 1, num_reviews))
-        clean_train_reviews.append(plotToWords(train["Plot"][i]))
+    for i in range(numberOfReviews):
+        formattedReviews_trained.append(plotToWords(train["Plot"][i]))
 
-    tagVector = getTags('Comedy', train)
-    data = {'plot': clean_train_reviews, 'tags': tagVector}
+    tag = getTags('Comedy', train)
+    data = {'figure': formattedReviews_trained, 'tags': tag}
     df = pd.DataFrame(data)
 
     return df

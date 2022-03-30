@@ -1,11 +1,16 @@
-from sklearn.cross_validation import train_test_split
+#KNN
+
+from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import KNeighborsClassifier
+import nltk
+nltk.download()
 from utils import predict
 from preprocess import preprocess
 
-csvFileName = 'data/trainingSet.csv'
-features = preprocess(csvFileName)
+
+csvFileName = 'trainingSet.csv'
+features = preprocess('trainingSet.csv')
 
 train, test = train_test_split(features, test_size=0.1, random_state=42)
 
