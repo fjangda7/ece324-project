@@ -1,6 +1,7 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 import re
+import nltk
 from utils import getTags
 from nltk.corpus import stopwords
 
