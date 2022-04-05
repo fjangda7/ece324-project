@@ -18,14 +18,14 @@ def plotToWords(raw_plot):
 def preprocess(filename):
     train = pd.read_csv(filename)
 
-    numberOfReviews = train["Plot"].size
+    numberOfReviews = train["plot"].size
     formattedReviews_trained = []
 
     for i in range(numberOfReviews):
-        formattedReviews_trained.append(plotToWords(train["Plot"][i]))
+        formattedReviews_trained.append(plotToWords(train["plot"][i]))
 
     tag = getTags('Comedy', train)
-    data = {'figure': formattedReviews_trained, 'tags': tag}
+    data = {'plot': formattedReviews_trained, 'tags': tag}
     df = pd.DataFrame(data)
 
     return df
