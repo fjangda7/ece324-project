@@ -10,8 +10,8 @@ def plotToWords(raw_plot):
     justLetters = re.sub("[^a-zA-Z]", " ", figure.get_text())
     lower = justLetters.lower()
     words = lower.split()
-    stopwords = set(stopwords.words("english"))
-    keys = [w for w in words if not w in stopwords]
+    uselessWords = set(stopwords.words("english"))
+    keys = [w for w in words if not w in uselessWords]
     return (" ".join(keys))
 
 def preprocess(filename):
