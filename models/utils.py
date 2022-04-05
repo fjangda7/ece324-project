@@ -1,4 +1,4 @@
-from sklearn.metrics import accuracy_score, matrix, recall_score, precision_score, f1_score
+from sklearn.metrics import accuracy_score, confusion_matrix, recall_score, precision_score, f1_score
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -23,7 +23,7 @@ def evaluate_prediction(predictions, target, title="Confusion Matrix"):
     print('recall %s' % recall_score(target, predictions,pos_label='Comedy'))
     print('f-measure %s' % f1_score(target, predictions,pos_label='Comedy'))
 
-    cm = matrix(target, predictions)
+    cm = confusion_matrix(target, predictions)
     print('confusion matrix\n %s' % cm)
     print('(row=expected, col=predicted)')
 
