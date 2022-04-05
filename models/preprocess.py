@@ -6,6 +6,7 @@ from utils import getTags
 from nltk.corpus import stopwords
 
 def plotToWords(raw_plot):
+    global stopwords
     figure = BeautifulSoup(raw_plot, "lxml")
     justLetters = re.sub("[^a-zA-Z]", " ", figure.get_text())
     lower = justLetters.lower()
