@@ -1,9 +1,8 @@
-from utils import getTags
-import matplotlib.pyplot as plt
-from bs4 import BeautifulSoup
 import pandas as pd
-from nltk.corpus import stopwords
+from bs4 import BeautifulSoup
 import re
+from utils import getTags
+from nltk.corpus import stopwords
 
 def plotToWords(raw_plot):
     figure = BeautifulSoup(raw_plot, "lxml")
