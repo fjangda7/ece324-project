@@ -11,3 +11,4 @@ Please refer to the Jupyter notebook in the data folder titled 'DataGathering.ip
 
 ### Models
 
+The model folder contains the code for the three different models we chose to implement. The CNN.py contains the code for the CNN that is still a work in progress. However the KNN.py and OneVsAll.py are fully functional models with the data created in the data folder above. The preprocess.py and utils.py files are helper files for both the KNN.py and OneVsAll.py models that help with data preprocessing as well as predicting the accuracy, precision, recall, and f-measure scores for the different tags and inputs.
